@@ -1,0 +1,171 @@
+🖥️ Complete Setup Guide for Brand New PC
+Here's everything you need from scratch to run this Brain Tumor Detection app:
+
+PART 1: Install Required Software
+Step 1: Install Python
+Go to python.org/downloads
+Download Python 3.8 or higher (recommend 3.10 or 3.11)
+IMPORTANT: During installation, check ✅ "Add Python to PATH"
+Click "Install Now"
+Verify installation:
+python --version
+# Should show: Python 3.10.x or higher
+Step 2: Install Node.js
+Go to nodejs.org
+Download LTS version (18.x or higher)
+Run installer with default settings
+Verify installation:
+node --version
+# Should show: v18.x or higher
+Step 3: Install Git (if not already installed)
+Go to git-scm.com
+Install with default settings
+Verify:
+git --version
+PART 2: Setup the Project
+Step 4: Get the Project Files
+If you have the project folder, skip to Step 5. Otherwise:
+
+# Clone or download the project
+cd Desktop  # or wherever you want the project
+# Extract/copy your project folder here
+Step 5: Install Frontend Dependencies
+# Open terminal/command prompt in project folder
+# Install Node.js packages
+npm install
+# This installs: Next.js, React, TypeScript, Tailwind, etc.
+Step 6: Setup Backend Environment
+Open a NEW terminal and navigate to backend:
+
+cd backend
+Create Python virtual environment:
+
+python -m venv venv
+Activate virtual environment:
+
+Windows (Command Prompt):
+venv\Scripts\activate
+Windows (PowerShell):
+venv\Scripts\Activate.ps1
+Mac/Linux:
+source venv/bin/activate
+You should see (venv) in your terminal.
+
+Install Python libraries:
+
+pip install -r requirements.txt
+This installs:
+
+Flask 3.0.0 (web server)
+Flask-CORS 4.0.0 (API access)
+TensorFlow 2.15.0 (AI/ML framework)
+Pillow 10.1.0 (image processing)
+NumPy 1.24.3 (numerical operations)
+Matplotlib 3.8.2 (visualization)
+⏳ This takes 5-10 minutes depending on internet speed.
+
+PART 3: Get the AI Model
+You need a trained model file (model.h5) in the backend/ folder.
+
+Option A: Train on Google Colab (⭐ RECOMMENDED - FREE GPU)
+Download the dataset:
+
+Go to kaggle.com/datasets/masoudnickparvar/brain-tumor-mri-dataset
+Sign in/create Kaggle account
+Click "Download" (150MB)
+Use Google Colab:
+
+Go to colab.research.google.com
+Sign in with Google account
+Click "Upload" and select backend/train_model.py
+Upload the dataset to Colab
+Click "Run All" (takes 15-30 minutes)
+Download the generated model.h5 file
+Place model.h5 in your backend/ folder
+Option B: Train Locally (if you have a good PC)
+cd backend
+python train_model.py
+# Takes 30-90 minutes depending on CPU/GPU
+# Creates model.h5 automatically
+PART 4: Run the Application
+Terminal 1: Start Frontend
+# In project root folder
+npm run dev
+# OR
+bun run dev
+✅ Frontend running at: http://localhost:3000
+
+Terminal 2: Start Backend
+# In backend folder with venv activated
+cd backend
+venv\Scripts\activate  # Windows
+# OR
+source venv/bin/activate  # Mac/Linux
+
+python app.py
+✅ Backend running at: http://localhost:5000
+
+PART 5: Test the App
+Open browser: http://localhost:3000
+Scroll to "Brain Tumor Detection" section
+Upload an MRI image (drag & drop or click)
+Click "Detect Tumor"
+Wait 2-3 seconds
+See results:
+🔴 Glioma
+🟠 Meningioma
+🟣 Pituitary
+🟢 No Tumor
+Confidence percentage
+📦 Summary: What Gets Installed
+Frontend Libraries (installed via npm install):
+Next.js 15 - React framework
+React 19 - UI library
+TypeScript - Type safety
+Tailwind CSS - Styling
+Shadcn/UI - Components
+Lucide React - Icons
+Backend Libraries (installed via pip install):
+Flask - Web server
+TensorFlow - Deep learning
+Keras - Neural networks
+Pillow - Image processing
+NumPy - Math operations
+Flask-CORS - API access
+🔧 Troubleshooting
+"Python not recognized"
+Reinstall Python with "Add to PATH" checked
+"pip not found"
+python -m pip --version
+# Use: python -m pip install ...
+"Cannot activate venv" (Windows PowerShell)
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+"Cannot connect to backend"
+Make sure both terminals are running
+Check http://localhost:5000/health in browser
+Ensure model.h5 exists in backend/
+"Module not found" errors
+# Reactivate venv and reinstall
+cd backend
+venv\Scripts\activate
+pip install -r requirements.txt
+✅ Quick Checklist
+Before running, ensure:
+
+ Python 3.8+ installed with PATH
+ Node.js 18+ installed
+ npm install completed (frontend)
+ Virtual environment created and activated
+ pip install -r requirements.txt completed (backend)
+ model.h5 file in backend/ folder
+ Two terminals open (frontend + backend)
+🎯 The Two Commands You'll Always Use
+Terminal 1 (Frontend):
+
+npm run dev
+Terminal 2 (Backend):
+
+cd backend
+venv\Scripts\activate
+python app.py
+That's everything you need! The app will be fully functional with AI tumor detection working end-to-end. 🧠✨
